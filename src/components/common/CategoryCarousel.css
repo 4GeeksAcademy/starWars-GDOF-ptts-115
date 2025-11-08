@@ -1,0 +1,88 @@
+/* separación lateral para que quepan las flechas superpuestas */
+.cc-wrap{
+  position: relative;
+  padding: 0 44px;
+}
+
+/* flechas superpuestas */
+.cc-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  border: 1px solid #d4b668;
+  background: rgba(0,0,0,.55);
+  color: #d4b668;
+  backdrop-filter: blur(2px);
+  transition: transform .12s ease, filter .12s ease, opacity .12s ease;
+}
+.cc-arrow.left{  left: 6px; }
+.cc-arrow.right{ right: 6px; }
+
+.cc-arrow:hover{
+  filter: brightness(1.1);
+  transform: translateY(-50%) scale(1.03);
+}
+.cc-arrow:disabled{
+  opacity: .35;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+/* pista y tarjetas */
+.cc-wrap { --gap: 16px; }
+
+.cc-track{
+  display:flex;
+  overflow-x:auto;
+  gap:var(--gap);
+  scroll-snap-type:x mandatory;
+  padding-bottom:6px;
+}
+
+.cc-track::-webkit-scrollbar{height:8px}
+.cc-track::-webkit-scrollbar-thumb{background:#32323a;border-radius:8px}
+.cc-track::-webkit-scrollbar-track{background:transparent}
+
+.cc-card{
+  flex:0 0 auto;
+  width: 220px;
+  border:1px solid #252530;
+  border-radius:12px;
+  overflow:hidden;
+  scroll-snap-align:start;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+@media (min-width:576px){ .cc-card{ width: 240px; } }
+@media (min-width:992px){ .cc-card{ width: 260px; } }
+
+.cc-img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  background:#0f0f15;
+  border-bottom:1px solid #1f2230;
+}
+
+
+.skeleton{ background:#11131a; }
+.sk{
+  background:linear-gradient(90deg,#1a1d26 25%,#222532 50%,#1a1d26 75%);
+  background-size:400% 100%;
+  animation:sk 1.2s infinite;
+}
+.sk-line{ height:12px; border-radius:6px; }
+.sk-line.sk-sm{ width:60%; }
+@keyframes sk { 0%{background-position:0 0} 100%{background-position:100% 0} }
+
+
+.cc-card { position: relative; }
+.cc-card .stretched-link { position: absolute; inset: 0; z-index: 5; }
+.cc-card .btn-fav { z-index: 6; }

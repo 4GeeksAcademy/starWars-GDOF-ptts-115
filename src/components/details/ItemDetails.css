@@ -1,0 +1,35 @@
+.item-details .offcanvas-body{
+  --pad: 12px;
+}
+
+.details-grid{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+}
+@media (max-width: 768px){
+  .details-grid{ grid-template-columns: 1fr; }
+}
+
+.details-media img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  background:#0f0f15;
+}
+
+.details-field{
+  background:#0f0f15;
+  border:1px solid #1f2230;
+  border-radius:10px;
+  padding:10px 12px;
+}
+.details-label{
+  font-size:.8rem;
+  color:#9aa0ad;
+  letter-spacing:.02em;
+}
+.details-value{
+  font-weight:600;
+  color:#f2f2f2;
+}
